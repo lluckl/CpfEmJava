@@ -1,18 +1,9 @@
+import java.lang.reflect.Array;
+
 public class matematicoCamadaDeVerificadorDeCpf{
      public long cpfComMaisUm;
      public long cpf;
-     private String stringNumeroDeCpf;
-     private byte primeiroNumeroCpf;
-     private byte segundoNumeroCpf;
-     private byte terceiroNumeroCpf;
-     private byte quartoNumeroCpf;
-     private byte quintoNumeroCpf;
-     private byte sextoNumeroCpf;
-     private byte setimoNumeroCpf;
-     private byte oitavoNumeroCpf;
-     private byte nonoNumeroCpf;
-     private byte decimoNumeroCpf;
-     private byte decimoPrimeiroNumeroCpf;
+     public String stringNumeroDeCpf;
      private boolean primeiroVerificadorDeCpf;
      private boolean segundoVerificadorDeCpf;
      private boolean terceiroVerificadorDeCpf;
@@ -77,34 +68,34 @@ public class matematicoCamadaDeVerificadorDeCpf{
 
          this.cpfComMaisUm = 100000000000l+this.cpf;
 
-         char primeiroCaracteresNumero       = stringNumeroDeCpf.charAt(1);
-         char segundoCaracteresNumero        = stringNumeroDeCpf.charAt(2);
-         char terceiroCaracteresNumero       = stringNumeroDeCpf.charAt(3);
-         char quartoCaracteresNumero         = stringNumeroDeCpf.charAt(4);
-         char quintoCaracteresNumero         = stringNumeroDeCpf.charAt(5);
-         char sextoCaracteresNumero          = stringNumeroDeCpf.charAt(6);
-         char setimoCaracteresNumero         = stringNumeroDeCpf.charAt(7);
-         char oitavoCaracteresNumero         = stringNumeroDeCpf.charAt(8);
-         char nonoCaracteresNumero           = stringNumeroDeCpf.charAt(9);
-         char decimoCaracteresNumero         = stringNumeroDeCpf.charAt(10);
+         char primeiroCaracteresNumero = stringNumeroDeCpf.charAt(1);
+         char segundoCaracteresNumero = stringNumeroDeCpf.charAt(2);
+         char terceiroCaracteresNumero = stringNumeroDeCpf.charAt(3);
+         char quartoCaracteresNumero = stringNumeroDeCpf.charAt(4);
+         char quintoCaracteresNumero = stringNumeroDeCpf.charAt(5);
+         char sextoCaracteresNumero = stringNumeroDeCpf.charAt(6);
+         char setimoCaracteresNumero = stringNumeroDeCpf.charAt(7);
+         char oitavoCaracteresNumero = stringNumeroDeCpf.charAt(8);
+         char nonoCaracteresNumero  = stringNumeroDeCpf.charAt(9);
+         char decimoCaracteresNumero = stringNumeroDeCpf.charAt(10);
          char decimoPrimeiroCaracteresNumero = stringNumeroDeCpf.charAt(11);
 
 
-         primeiroNumeroCpf       = (byte) primeiroCaracteresNumero;
-         segundoNumeroCpf        = (byte) segundoCaracteresNumero;
-         terceiroNumeroCpf       = (byte) terceiroCaracteresNumero;
-         quartoNumeroCpf         = (byte) quartoCaracteresNumero;
-         quintoNumeroCpf         = (byte) quintoCaracteresNumero;
-         sextoNumeroCpf          = (byte) sextoCaracteresNumero;
-         setimoNumeroCpf         = (byte) setimoCaracteresNumero;
-         oitavoNumeroCpf         = (byte) oitavoCaracteresNumero;
-         nonoNumeroCpf           = (byte) nonoCaracteresNumero;
-         decimoNumeroCpf         = (byte) decimoCaracteresNumero;
-         decimoPrimeiroNumeroCpf = (byte) decimoPrimeiroCaracteresNumero;
-
+         byte Cpfnum1 = (byte) primeiroCaracteresNumero;
+         byte Cpfnum2 = (byte) segundoCaracteresNumero;
+         byte Cpfnum3 = (byte) terceiroCaracteresNumero;
+         byte Cpfnum4 = (byte) quartoCaracteresNumero;
+         byte Cpfnum5 = (byte) quintoCaracteresNumero;
+         byte Cpfnum6 = (byte) sextoCaracteresNumero;
+         byte Cpfnum7 = (byte) setimoCaracteresNumero;
+         byte Cpfnum8 = (byte) oitavoCaracteresNumero;
+         byte Cpfnum9 = (byte) nonoCaracteresNumero;
+         byte Cpfnum10 = (byte) decimoCaracteresNumero;
+         byte Cpfnum11 = (byte) decimoPrimeiroCaracteresNumero;
+            int[] DigitoCpf ={Cpfnum1,Cpfnum2,Cpfnum3,Cpfnum4,Cpfnum5,Cpfnum6,Cpfnum7,Cpfnum8,Cpfnum10,Cpfnum11};
      }
      public void regraQueNoPodeRepitir() {
-        switch (stringNumeroDeCpf) {
+        switch (this.stringNumeroDeCpf) {
             case "100000000000", "111111111111", "122222222222", "133333333333", "144444444444",
                      "155555555555", "166666666666","177777777777", "188888888888", "199999999999":
                 setSegundoVerificadorDeCpf(false);
@@ -116,7 +107,7 @@ public class matematicoCamadaDeVerificadorDeCpf{
     }
         public void primeiroCalculo() {
 
-         int umcpf01 = primeiroNumeroCpf * 10;
+         int umcpf01 = this.DigitoCpf[0] * 10;
          int umcpf02 = segundoNumeroCpf  * 9;
          int umcpf03 = terceiroNumeroCpf * 8;
          int umcpf04 = quartoNumeroCpf   * 7;
